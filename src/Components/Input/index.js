@@ -2,7 +2,10 @@ import React ,{useRef} from 'react';
 
 import {Inp,Button} from './style'
 
-const Input = () => {
+import {connect} from 'react-redux';
+import getAllMovie from '../../Data/Operations'
+
+const Input = ({getAllMovie}) => {
 
     const URL = useRef("");
 
@@ -13,10 +16,12 @@ const Input = () => {
 
     function sendURL() {
         
-        fetch(`http://localhost:4001/download?URL=${URL.current.value}`, {
-            method:'GET'
-        }).then(res => res.json())
-        .then(json => console.log(json));
+        // console.log(URL.current.value)
+        getAllMovie(URL.current.value);
+        // fetch(`http://localhost:4001/download?URL=${URL.current.value}`, {
+        //     method:'GET'
+        // }).then(res => res.json())
+        // .then(json => console.log(json));
     }
 
 
@@ -29,5 +34,14 @@ const Input = () => {
      );
      
 }
+
+
+    const mapDispatchToProps = dispatch =>({
+        getAllMovie: (URL) => dispatch(getAllMovie(URL))
+    })
+
  
-export default Input;
+    const ConectedApp = connect(null,mapDispatchToProps)(Input);
+
+
+export default ConectedApp;

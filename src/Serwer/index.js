@@ -16,11 +16,10 @@ app.get('/download', (req,res) => {
     var URL = req.query.URL;
     
     // res.json(ytdl.getInfo(URL,(err,info)=>(info)))
-    const cos = ytdl.getInfo(URL,(err,info)=>{
+    const Data = ytdl.getInfo(URL,(err,info)=>{
         return info;
     })
 
-    cos.then(res => res)
+    Data.then(res => res)
     .then(data => res.json(data))
-    // res.json(URL);
 })

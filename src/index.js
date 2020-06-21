@@ -3,11 +3,16 @@ import ReactDOM from 'react-dom';
 
 import App from './App';
 import GlobalStyles from './GlobalStyle/GlobalStyle'
+import { Provider } from 'react-redux';
+import configureStore from './Data/Store.js'
+
+
+  const store = configureStore();
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store ={ store}>
     <GlobalStyles/>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
