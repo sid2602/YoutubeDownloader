@@ -12,25 +12,21 @@ const Input = ({getAllMovie}) => {
     const style = {
         textAlign: 'center',
         width: '100%',
+        display: 'flex',
+        justifyContent: "center"
     }
 
     function sendURL() {
-        
-        // console.log(URL.current.value)
         getAllMovie(URL.current.value);
-        // fetch(`http://localhost:4001/download?URL=${URL.current.value}`, {
-        //     method:'GET'
-        // }).then(res => res.json())
-        // .then(json => console.log(json));
     }
 
 
     return ( 
         
-        <div style = {style}>
+        <main style = {style}>
             <Inp ref = {URL} type="text" placeholder="Paste link"/>
             <Button onClick ={()=>sendURL()}>Start</Button>
-        </div>
+        </main>
      );
      
 }

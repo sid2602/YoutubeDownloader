@@ -3,6 +3,10 @@ import { normalize } from 'styled-normalize'
 
 const GlobalStyle = createGlobalStyle`
     ${normalize}
+
+    body{
+        font-family: 'Roboto', sans-serif;
+    }
 `;
 
 

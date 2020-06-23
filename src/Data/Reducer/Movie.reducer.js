@@ -3,7 +3,7 @@ import CONSTANS from '../Constans';
 
 const initialState = {
 
-    movieInfo : [],
+    movieInfo : null,
     loading :false,
     error : ""
 
@@ -15,11 +15,12 @@ const Movie = (state = initialState,action) => {
             return{
                 ...state,
                 loading: true,
+                movieInfo: null,
             }
 
         case(CONSTANS.DATA_GET_SUCCESS):
             return{
-                ...state,
+                
                 movieInfo: action.info,
                 loading: false,
                 error: ''
@@ -27,7 +28,7 @@ const Movie = (state = initialState,action) => {
 
         case(CONSTANS.DATA_GET_FAILURE):
             return{
-                ...state,
+                movieInfo: null,
                 loading: false,
                 error: action.error,
                 
