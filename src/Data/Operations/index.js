@@ -1,7 +1,7 @@
 import Actions from '../Actions';
 
 const fetchMovie = async(URL) => {
-    const response = await fetch(`http://localhost:4001/download?URL=${URL}`);
+    const response = await fetch(`http://localhost:4000/search?URL=${URL}`);
     const json = await response.json();
     return json;
 }
@@ -13,7 +13,7 @@ const getMovieInfo = (URL) =>
         try{
             const MovieInfo = await fetchMovie(URL);
             const DataSRC = MovieInfo.player_response.microformat.playerMicroformatRenderer;
-            let Mp4 = MovieInfo.formats.filter(item =>  item.container === "mp4" && item.qualityLabel !== null )
+            let Mp4 = MovieInfo.formats.filter(item =>  item.container === "mp4" && item.qualityLabel !== null && item.audioBitrate !== null )
             let Webm = MovieInfo.formats.filter(item => item.container === "webm" && item.qualityLabel !== null )
 
             function Comp (a,b){
@@ -43,16 +43,17 @@ const getMovieInfo = (URL) =>
             Mp4.sort(Comp);
             Webm.sort(Comp);
 
-            Mp4 = remove_duplicates(Mp4);
+            // Mp4 = remove_duplicates(Mp4);
             Webm = remove_duplicates(Webm);
-           
-            
+            console.log(Mp4)
+            // console.log(MovieInfo);
 
             const Data = {
                 Title: DataSRC.title.simpleText,
                 Thumbinail: DataSRC.thumbnail.thumbnails[0].url,
                 Mp4,
-                Webm,        
+                Webm,
+                URL: MovieInfo.video_url
             }
 
             dispatch(Actions.Success(Data));
