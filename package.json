@@ -25,8 +25,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "server": "cd ./src/Serwer && node index.js",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "backend" : "cd Serwer && npm run serwer",
+    "dev": "concurrently  \"npm run server\" \"npm run start\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -42,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }
