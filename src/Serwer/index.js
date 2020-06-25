@@ -16,7 +16,6 @@ app.listen(PORT, () => {
 app.get('/search', (req,res) => {
     const URL = req.query.URL;
     
-    // res.json(ytdl.getInfo(URL,(err,info)=>(info)))
     const Data = ytdl.getInfo(URL,(err,info)=>{
         return info;
     })
@@ -28,26 +27,26 @@ app.get('/search', (req,res) => {
 
 app.get('/download' ,async(req,res) => {
     try{
-    const URL = req.query.URL;
-    const quality = req.query.quality;
-    const downloadType= req.query.downloadType;
-    let title = "video";
-    
-    await ytdl.getBasicInfo(URL, {
-        format: 'mp4'
-    }, (err, info) => {
-        title = info.player_response.videoDetails.title.replace(/[^\x00-\x7F]/g, "");
-    });
+        const URL = req.query.URL;
+        const quality = req.query.quality;
+        const downloadType= req.query.downloadType;
+        let title = "video";
+        
+        await ytdl.getBasicInfo(URL, {
+            format: 'mp4'
+        }, (err, info) => {
+            title = info.player_response.videoDetails.title.replace(/[^\x00-\x7F]/g, "");
+        });
 
-    res.header('Content-Disposition', `attachment; filename="${title}.${downloadType}"`);
+        res.header('Content-Disposition', `attachment; filename="${title}.${downloadType}"`);
 
-    ytdl(URL,{
-        format: downloadType === 'mp3'? "mp4":downloadType,
-        quality: quality
-    }).pipe(res);
+        ytdl(URL,{
+            format: downloadType === 'mp3'? "mp4":downloadType,
+            quality: quality
+        }).pipe(res);
     }
     catch(error){
-        console.log(error)
+        alert(error)
     }
    
 })

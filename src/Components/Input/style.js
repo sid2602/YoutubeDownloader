@@ -9,7 +9,13 @@ export const Inp = styled.input`
     font-size: 2em;
     margin: 0;
     outline: none;
+    
+
+    ::placeholder{
+        color: black;
+    }
     :focus{
+        
         border-color: red;
     }
 `;
@@ -24,7 +30,7 @@ export const Button = styled.button`
     margin-left:20px;
     border-radius: 10px;
     cursor: pointer;
-    background-color: #f44336;
+    background-color: #D60000;
     transition: 0.2s;
     &:hover{
         background-color: red;

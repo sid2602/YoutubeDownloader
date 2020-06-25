@@ -1,12 +1,12 @@
 
-
 import React from 'react';
+
 import Header from './Components/Header'
 import Wrapper from './Components/Wrapper'
 import Input from './Components/Input'
 import ProgressBar from './Components/ProgresBar'
 import Downloader from './Components/Downolader'
-
+import Footer from './Components/Footer'
 
 
 
@@ -23,9 +23,10 @@ function App({loading,movieInfo}) {
   
 
   return (
-
+    <>
+    <Header/>
     <Wrapper>
-      <Header/>
+      
       <h2 style={h1Style}>Download Video and Audio from YouTube</h2>
       <Input/>
       {loading?  <ProgressBar /> :  null}
@@ -33,8 +34,9 @@ function App({loading,movieInfo}) {
       {
         typeof(movieInfo) === 'object' && movieInfo!== null ? <Downloader movieInfo = {movieInfo}/> : null
       }
+      <Footer/>
     </Wrapper>
-   
+   </>
   );
 }
 

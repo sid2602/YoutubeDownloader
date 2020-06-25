@@ -3,11 +3,11 @@ import styled from 'styled-components';
 
 const Wrapper = styled.main`
 
-    
-    border-radius: 10px;
     max-width:1200px;
-    height: 80vh;
+    
     margin: 0 auto;
+    border-radius: 10px;
+    border: 2px solid #d6d6d6;
     
 `;
 

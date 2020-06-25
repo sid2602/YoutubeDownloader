@@ -7,7 +7,6 @@ const style = {
     alignItems:"center",
     justifyContent: "center",
     fontSize: "2em",
-    borderBottom: "2px solid black",
     fontWeight: "bold"
     
 }
@@ -15,7 +14,7 @@ const style = {
 
 const Header = () => {
     return ( 
-        <header style = {style}>YouTube Downloader <i className="fab fa-youtube" style={{marginLeft:"20px"}}></i> </header>
+        <header style = {style}>YouTube Downloader <i className="fab fa-youtube" style={{marginLeft:"20px",color:"red"}}></i></header>
      );
 }
  

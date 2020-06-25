@@ -42,11 +42,8 @@ const getMovieInfo = (URL) =>
             
             Mp4.sort(Comp);
             Webm.sort(Comp);
-
-            // Mp4 = remove_duplicates(Mp4);
+            
             Webm = remove_duplicates(Webm);
-            console.log(Mp4)
-            // console.log(MovieInfo);
 
             const Data = {
                 Title: DataSRC.title.simpleText,
@@ -58,7 +55,7 @@ const getMovieInfo = (URL) =>
 
             dispatch(Actions.Success(Data));
         }catch (error){
-            console.log(error)
+            alert("please paste a correct video link")
             dispatch(Actions.Failure(error));
         }
     }
