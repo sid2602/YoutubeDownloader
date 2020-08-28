@@ -1,17 +1,15 @@
 const express = require('express');
 const cors = require('cors');
 const ytdl = require('ytdl-core');
-const { response } = require('express');
 const app = express();
+const path = require('path');
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 app.use(cors());
 
 
-app.listen(PORT, () => {
-    console.log('Server Works !!! At port 4000');
-});
+
 
 app.get('/search', (req,res) => {
     const URL = req.query.URL;
@@ -50,3 +48,12 @@ app.get('/download' ,async(req,res) => {
     }
    
 })
+
+app.use.express.static(path.join(__dirname,'../../build'))
+
+app.sendFile(path.join(__dirname,'../../build/index.html'))
+
+app.listen(PORT, () => {
+    console.log(`Server Works !!! At port ${PORT}`);
+});
+

@@ -2,7 +2,6 @@
   "name": "app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sid2602.github.io/YoutubeDownloader/",
   "dependencies": {
     "@material-ui/core": "^4.10.2",
     "@testing-library/jest-dom": "^4.2.4",
@@ -13,6 +12,7 @@
     "express": "^4.17.1",
     "gh-pages": "^3.1.0",
     "normalize.css": "^8.0.1",
+    "path": "^0.12.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
@@ -25,15 +25,17 @@
     "ytdl-core": "^2.1.7"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "install-react": "npm install",
+    "start": "cd src && cd server && node server.js",
     "build": "react-scripts build",
     "server": "cd ./src/Serwer && node index.js",
+    "heroku-postbuild": "npm run install-react && npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "backend": "cd Serwer && npm run serwer",
     "dev": "concurrently  \"npm run server\" \"npm run start\"",
-    "predeploy" : "npm run build",
-    "deploy":"gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
