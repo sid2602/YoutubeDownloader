@@ -6,8 +6,7 @@ const Table = ({movieInfo,active}) => {
 
     const download = (quality,downloadType) =>{
         
-        const downloadLink = `http://localhost:4000/download?URL=${movieInfo.URL}&quality=${quality}&downloadType=${downloadType}&title=${movieInfo.Title}`
-        
+        const downloadLink = `/download?URL=${movieInfo.URL}&quality=${quality}&downloadType=${downloadType}&title=${movieInfo.Title}`
         window.location.href = downloadLink;
     
     }

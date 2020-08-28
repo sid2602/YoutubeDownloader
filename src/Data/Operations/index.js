@@ -1,7 +1,7 @@
 import Actions from '../Actions';
 
 const fetchMovie = async(URL) => {
-    const response = await fetch(`http://localhost:4000/search?URL=${URL}`);
+    const response = await fetch(`/search?URL=${URL}`);
     const json = await response.json();
     return json;
 }

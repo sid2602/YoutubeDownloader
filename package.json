@@ -26,7 +26,7 @@
   },
   "scripts": {
     "install-react": "npm install",
-    "start": "cd src && cd server && node server.js",
+    "start": "cd src && cd Serwer && node index.js",
     "build": "react-scripts build",
     "server": "cd ./src/Serwer && node index.js",
     "heroku-postbuild": "npm run install-react && npm run build",
@@ -54,5 +54,6 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
-  }
+  },
+  "proxy": "http://localhost:5000"
 }

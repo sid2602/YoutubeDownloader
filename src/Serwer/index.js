@@ -13,7 +13,7 @@ app.use(cors());
 
 app.get('/search', (req,res) => {
     const URL = req.query.URL;
-    
+    console.log(URL)
     const Data = ytdl.getInfo(URL,(err,info)=>{
         return info;
     })
@@ -49,9 +49,11 @@ app.get('/download' ,async(req,res) => {
    
 })
 
-app.use.express.static(path.join(__dirname,'../../build'))
+app.use(express.static(path.join(__dirname,'../../build')))
 
-app.sendFile(path.join(__dirname,'../../build/index.html'))
+app.get('/', (req,res) => {
+    res.sendFile(path.join(__dirname,'../../build/index.html'))
+});
 
 app.listen(PORT, () => {
     console.log(`Server Works !!! At port ${PORT}`);
