@@ -1,21 +1,13 @@
-import React from 'react';
+import React from "react";
 
-
-const style = {
-    height: "10vh",
-    display:"flex",
-    alignItems:"center",
-    justifyContent: "center",
-    fontSize: "2em",
-    fontWeight: "bold"
-    
-}
-
+import { HeaderStyled } from "./style";
 
 const Header = () => {
-    return ( 
-        <header style = {style}>YouTube Downloader <i className="fab fa-youtube" style={{marginLeft:"20px",color:"red"}}></i></header>
-     );
-}
- 
+  return (
+    <HeaderStyled>
+      YouTube Downloader <i className="fab fa-youtube"></i>
+    </HeaderStyled>
+  );
+};
+
 export default Header;

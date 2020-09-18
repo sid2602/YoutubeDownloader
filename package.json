@@ -27,13 +27,14 @@
   "scripts": {
     "install-react": "npm install",
     "start": "cd src && cd Serwer && node index.js",
+    "startReact": "react-scripts start",
     "build": "react-scripts build",
-    "server": "cd ./src/Serwer && node index.js",
+    "server": "cd ./src/Serwer && nodemon index.js",
     "heroku-postbuild": "npm run install-react && npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "backend": "cd Serwer && npm run serwer",
-    "dev": "concurrently  \"npm run server\" \"npm run start\"",
+    "dev": "concurrently  \"npm run server\" \"npm run startReact\"",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
