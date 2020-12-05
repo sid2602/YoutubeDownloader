@@ -63,6 +63,7 @@ const getMovieInfo = (URL) => async (dispatch) => {
     dispatch(Actions.Success(Data));
   } catch (error) {
     alert("please paste a correct video link");
+
     dispatch(Actions.Failure(error));
   }
 };

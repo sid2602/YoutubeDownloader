@@ -11,10 +11,13 @@ app.use(cors());
 app.get("/search", (req, res) => {
   const URL = req.query.URL;
   const Data = ytdl.getInfo(URL, (err, info) => {
+    if (err) return err;
     return info;
   });
 
-  Data.then((res) => res).then((data) => res.json(data));
+  Data.then((res) => res).then((data) => {
+    res.json(data);
+  });
 });
 
 app.get("/download", async (req, res) => {
