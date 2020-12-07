@@ -49,21 +49,18 @@ const getMovieInfo = (URL) => async (dispatch) => {
 
     Mp4.sort(Comp);
     Webm.sort(Comp);
-
     Webm = remove_duplicates(Webm);
-
     const Data = {
       Title: DataSRC.title.simpleText,
       Thumbinail: DataSRC.thumbnail.thumbnails[0].url,
       Mp4,
       Webm,
-      URL: MovieInfo.video_url,
+      URL: MovieInfo.videoDetails.video_url || "dsa",
     };
 
     dispatch(Actions.Success(Data));
   } catch (error) {
     alert("please paste a correct video link");
-
     dispatch(Actions.Failure(error));
   }
 };

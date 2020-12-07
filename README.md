@@ -13,7 +13,7 @@ https://youtube-downloader1.herokuapp.com/
 - Styled-components 5.1.1
 - Node js
 - Express 4.17.1
-- ytdl-core 2.1.7
+- ytdl-core 4.1.2
 
 ## Features
 

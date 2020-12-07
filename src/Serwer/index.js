@@ -16,6 +16,7 @@ app.get("/search", (req, res) => {
   });
 
   Data.then((res) => res).then((data) => {
+    console.log(data);
     res.json(data);
   });
 });
@@ -50,6 +51,7 @@ app.get("/download", async (req, res) => {
       quality: quality,
     }).pipe(res);
   } catch (error) {
+    console.log(error);
     alert(error);
   }
 });
